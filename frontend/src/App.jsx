@@ -1,7 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-
-
+import HomePage from "./pages/HomePage";
+import SignUpPage from "./pages/SignUpPage";
+import LoginPage from "./pages/LoginPage";
+import ProfilePage from "./pages/ProfilePage";
+import SettingsPage from "./pages/SettingsPage";
 
 const App = () => {
   return (
