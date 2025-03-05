@@ -14,18 +14,18 @@ A real-time chat application built using the MERN stack, Socket.io, TailwindCSS,
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/realtime-chat-app.git
+   git clone [https://github.com/your-username/realtime-chat-app.git]
    cd realtime-chat-app
    ```
 
 2. Install dependencies:
    ```bash
    # Server
-   cd server
+   cd backend
    npm install
    
    # Client
-   cd ../client
+   cd frotnend
    npm install
    ```
 
@@ -39,15 +39,15 @@ A real-time chat application built using the MERN stack, Socket.io, TailwindCSS,
 4. Start the development servers:
    ```bash
    # Start backend
-   cd server
-   npm run dev
+   cd backend
+   nodemon server.js
    
    # Start frontend
-   cd ../client
+   cd frontend
    npm run dev
    ```
 
-5. Open the application in your browser at `http://localhost:3000`
+5. Open the application in your browser at `LOCALHOST / UR PORT`
 
 ## 🛠 Tech Stack
 
