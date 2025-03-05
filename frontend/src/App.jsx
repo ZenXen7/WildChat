@@ -6,7 +6,9 @@ import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
 import SettingsPage from "./pages/SettingsPage";
 
+
 const App = () => {
+ 
   return (
     <div>
       <Navbar/>  
