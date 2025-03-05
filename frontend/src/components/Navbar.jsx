@@ -2,11 +2,7 @@
 
 const Navbar = () => {
   
-  return (
-    <div>
-      hello
-    </div>
-  )
+  return 
 }
 
 export default Navbar
