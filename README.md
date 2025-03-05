@@ -14,7 +14,7 @@ A real-time chat application built using the MERN stack, Socket.io, TailwindCSS,
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/realtime-chat-app.git
+   git clone [https://github.com/your-username/realtime-chat-app.git]
    cd realtime-chat-app
    ```
 
