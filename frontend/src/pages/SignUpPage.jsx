@@ -48,7 +48,7 @@ const SignUpPage = () => {
     <div className="min-h-screen grid lg:grid-cols-2">
       <div className="flex flex-col justify-center items-center p-6 sm:p-12 bg-base-100">
         <div className="w-full max-w-md space-y-8">
-          {/* Logo and Header */}
+         
           <div className="text-center mb-8">
             <div className="flex flex-col items-center gap-2 group">
               <div
@@ -62,20 +62,20 @@ const SignUpPage = () => {
             </div>
           </div>
 
-          {/* Social Login Buttons */}
+         
           <div className="grid grid-cols-3 gap-3">
-            <button className="btn btn-outline btn-sm h-12 flex items-center justify-center gap-2 hover:bg-base-200 transition-all">
+            <button className="btn btn-outline btn-sm h-12 flex items-center justify-center gap-2 transition-all">
               <Google className="size-5" />
             </button>
-            <button className="btn btn-outline btn-sm h-12 flex items-center justify-center gap-2 hover:bg-base-200 transition-all">
+            <button className="btn btn-outline btn-sm h-12 flex items-center justify-center gap-2 transition-all">
               <Github className="size-5" />
             </button>
-            <button className="btn btn-outline btn-sm h-12 flex items-center justify-center gap-2 hover:bg-base-200 transition-all">
+            <button className="btn btn-outline btn-sm h-12 flex items-center justify-center gap-2  transition-all">
               <Twitter className="size-5" />
             </button>
           </div>
 
-          {/* Divider */}
+          
           <div className="flex items-center my-6">
             <div className="flex-grow h-px bg-base-300"></div>
             <span className="px-3 text-sm text-base-content/60">or continue with email</span>
