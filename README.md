@@ -60,7 +60,7 @@ A real-time chat application built using the MERN stack, Socket.io, TailwindCSS,
 
 - [ ] Add typing indicators
 - [ ] Implement read receipts
-- [ ] Improve UI/UX with animationsp
+- [ ] Implement groupchat feature
 
 ## 🤝 Contributing
 
