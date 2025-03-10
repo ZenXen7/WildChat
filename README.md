@@ -6,9 +6,9 @@ WildChats is a real-time chat application built for **Cebu Institute of Technolo
 
 - 🎓 **Campus Exclusive:** Built specifically for CIT-U students and faculty
 - 🌟 **Tech Stack:** MERN (MongoDB, Express.js, React, Node.js) + Socket.io + TailwindCSS + Daisy UI
-- 🔐 **Authentication & Authorization:** Secure login and signup using JWT with student verification
+- 🔐 **Authentication & Authorization:** Email confirmation to your CIT-U Outlook Account
 - 🟢 **Real-Time Messaging:** Instant communication powered by Socket.io
-- 🔒 **Privacy & Security:** User authentication and message encryption for confidentiality
+- 🔒 **Privacy & Security:** Secure login and signup using JWT with student verification
 - 🎨 **Modern UI:** Responsive and clean design with TailwindCSS and Daisy UI
 
 
