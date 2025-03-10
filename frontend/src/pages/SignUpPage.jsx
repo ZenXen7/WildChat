@@ -34,7 +34,7 @@ const SignUpPage = () => {
     const success = validateForm()
     if (success === true) {
       await signup(formData)
-      setIsVerifying(true) // Show verification form after sign-up
+      setIsVerifying(true) 
     }
   }
 
@@ -43,10 +43,10 @@ const SignUpPage = () => {
       <div className="flex flex-col justify-center items-center p-6 sm:p-12 bg-base-100">
         <div className="w-full max-w-md space-y-8">
           {isVerifying ? (
-            <VerifyEmail email={formData.email} /> // Show verification form
+            <VerifyEmail email={formData.email} /> 
           ) : (
             <>
-              {/* Sign Up Form */}
+             
               <div className="text-center mb-8">
                 <h1 className="text-3xl font-bold mt-3 text-base-content">Create Account</h1>
                 <p className="text-base-content/60 text-lg">Get started with your free account</p>
@@ -107,7 +107,7 @@ const SignUpPage = () => {
 
                 <button
                   type="submit"
-                  className="btn btn-primary w-full h-12 mt-4"
+                  className="btn btn-primary w-full h-12 mt-4 text-base font-medium transition-all duration-300 hover:shadow-md hover:shadow-primary/20"
                   disabled={isSigningUp}
                 >
                   {isSigningUp ? (

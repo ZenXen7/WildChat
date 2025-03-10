@@ -71,7 +71,7 @@ const LoginPage = () => {
                 <input
                   type="email"
                   className="input input-bordered w-full pl-10 rounded-lg h-12 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
-                  placeholder="you@example.com"
+                  placeholder="name@cit.edu"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
@@ -92,7 +92,7 @@ const LoginPage = () => {
                 <input
                   type={showPassword ? "text" : "password"}
                   className="input input-bordered w-full pl-10 rounded-lg h-12 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
-                  placeholder="••••••••"
+                  placeholder=""
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 />
