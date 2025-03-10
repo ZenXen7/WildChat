@@ -15,12 +15,12 @@ const Navbar = () => {
           <div className="flex items-center gap-8">
             <Link to="/" className="flex items-center gap-2.5 hover:opacity-80 transition-all">
             <div
-                className="size-12 rounded-2xl bg-primary/10 flex items-center justify-center 
+                className="size-12 rounded-2xl bg-transparent flex items-center justify-center 
               group-hover:bg-primary/20 transition-colors"
               >
-                <Cat className="size-7 text-primary" />
+                <Cat className="size-10 text-primary" />
               </div>
-              <h1 className="text-xl font-bold font-popi">WildChats</h1>
+             
             </Link>
           </div>
 

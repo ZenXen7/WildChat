@@ -69,7 +69,7 @@ export function AnimatedBackground({ title, subtitle }) {
 
       <div className="max-w-md text-center z-10 p-12">
         <h2 className="text-6xl font-bold mb-4 text-base-content tracking-tighter">
-          Join <span className="font-serif">{title}</span>
+          Join <i className="text-7xl font-serif">{title}</i>
         </h2>
         <p className="text-base-content/70 text-lg">{subtitle}</p>
       </div>

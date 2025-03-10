@@ -56,8 +56,8 @@ const SignUpPage = () => {
               >
                 <Cat className="size-7 text-primary" />
               </div>
-              <h1 className="text-2xl font-bold mt-2">Create Account</h1>
-              <p className="text-base-content/60">Get started with your free account</p>
+              <h1 className="text-2xl font-bold mt-2">Welcome to <i className="font-serif">WildChats</i></h1>
+              <p className="text-base-content/60">Sign up with your institutional email.</p>
             </div>
               
               </div>
