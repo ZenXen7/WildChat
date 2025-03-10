@@ -1,5 +1,6 @@
 "use client"
 
+import Particles from "react-tsparticles"
 import { useState } from "react"
 import { useAuthStore } from "../store/useAuthStore"
 import AuthImagePattern from "../components/AuthImagePattern"
@@ -143,10 +144,11 @@ const LoginPage = () => {
             </p>
           </div>
         </div>
+        
       </div>
-
+                
       <AnimatedBackground
-      title="Join WildChats"
+      title="WildChats"
       subtitle="See who's online, start conversations, and connect with fellow Wildcats in real time."
     />
 
