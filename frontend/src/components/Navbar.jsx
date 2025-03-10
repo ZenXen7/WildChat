@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuthStore } from "../store/useAuthStore";
-import { LogOut, MessageSquare, Settings, User, BugPlay } from "lucide-react";
+import { LogOut, MessageSquare, Settings, User, BugPlay, Cat } from "lucide-react";
 
 const Navbar = () => {
   const { logout, authUser } = useAuthStore();
@@ -14,10 +14,10 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-full">
           <div className="flex items-center gap-8">
             <Link to="/" className="flex items-center gap-2.5 hover:opacity-80 transition-all">
-              <div className="size-9 rounded-lg bg-primary/10 flex items-center justify-center">
-                <BugPlay className="w-5 h-5 text-primary" />
+              <div className="size-8 rounded-lg bg-amber-400 flex items-center justify-center">
+                <Cat className="w-7 h-7  text-red-800" />
               </div>
-              <h1 className="text-lg font-bold">kChat</h1>
+              <h1 className="text-xl font-bold font-popi">WildChats</h1>
             </Link>
           </div>
 

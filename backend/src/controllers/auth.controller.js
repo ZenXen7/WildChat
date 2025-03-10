@@ -10,6 +10,10 @@ export const signup = async (req, res) => {
       return res.status(400).json({ message: "All fields are required" });
     }
 
+    if (!email.endsWith("@cit.edu")) {
+      return res.status(400).json({ message: "Email must be a CIT email." });
+    }
+
     if (password.length < 6) {
       return res.status(400).json({ message: "Password must be at least 6 characters" });
     }
@@ -28,7 +32,7 @@ export const signup = async (req, res) => {
     });
 
     if (newUser) {
-      // generate jwt token here
+    
       generateToken(newUser._id, res);
       await newUser.save();
 
@@ -46,6 +50,7 @@ export const signup = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
 
 export const login = async (req, res) => {
   const { email, password } = req.body;

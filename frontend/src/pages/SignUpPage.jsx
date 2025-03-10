@@ -17,8 +17,10 @@ import {
 import { Link } from "react-router-dom"
 import AnimatedBackground from "../components/AnimatedBackground"
 import toast from "react-hot-toast"
+import { useThemeStore } from "../store/useThemeStore"
 
 const SignUpPage = () => {
+  const { theme } = useThemeStore();
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
     fullName: "",
@@ -51,12 +53,7 @@ const SignUpPage = () => {
          
           <div className="text-center mb-8">
             <div className="flex flex-col items-center gap-2 group">
-              <div
-                className="size-14 rounded-2xl bg-primary/10 flex items-center justify-center 
-                group-hover:bg-primary/20 transition-all duration-300 transform group-hover:scale-105"
-              >
-                <MessageSquare className="size-7 text-primary" />
-              </div>
+              
               <h1 className="text-3xl font-bold mt-3 text-base-content">Create Account</h1>
               <p className="text-base-content/60 text-lg">Get started with your free account</p>
             </div>
@@ -89,12 +86,12 @@ const SignUpPage = () => {
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <User className="size-5 text-base-content/40" />
+                  <User className="size-5 text-base-content/90" />
                 </div>
                 <input
                   type="text"
                   className="input input-bordered w-full pl-10 rounded-lg h-12 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
-                  placeholder="John Doe"
+                  placeholder=""
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                 />
@@ -107,12 +104,12 @@ const SignUpPage = () => {
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Mail className="size-5 text-base-content/40" />
+                  <Mail  className="size-5 text-base-content/90" />
                 </div>
                 <input
                   type="email"
                   className="input input-bordered w-full pl-10 rounded-lg h-12 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
-                  placeholder="you@example.com"
+                  placeholder=""
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
@@ -126,12 +123,12 @@ const SignUpPage = () => {
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Lock className="size-5 text-base-content/40" />
+                  <Lock className="size-5 text-base-content/90" />
                 </div>
                 <input
                   type={showPassword ? "text" : "password"}
                   className="input input-bordered w-full pl-10 rounded-lg h-12 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
-                  placeholder="••••••••"
+                  placeholder=""
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 />
