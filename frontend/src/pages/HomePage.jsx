@@ -16,7 +16,7 @@ const HomePage = () => {
             
             <Sidebar />
            
-
+          
             {!selectedUser ? <NoChatSelected/> : <ChatContainer />}
           </div>
         </div>

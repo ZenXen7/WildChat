@@ -32,15 +32,20 @@ export const useAuthStore = create((set, get) => ({
     set({ isSigningUp: true });
     try {
       const res = await axiosInstance.post("/auth/signup", data);
-      set({ authUser: res.data });
-      toast.success("Account created successfully");
-      get().connectSocket();
+      toast.success("Verification code sent to your email!");
+  
+     
+      set({ pendingEmail: data.email });
+  
+      return true;
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message || "Signup failed");
+      return false;
     } finally {
       set({ isSigningUp: false });
     }
   },
+  
 
   login: async (data) => {
     set({ isLoggingIn: true });
@@ -102,4 +107,25 @@ export const useAuthStore = create((set, get) => ({
   disconnectSocket: () => {
     if (get().socket?.connected) get().socket.disconnect();
   },
+
+  verifyEmail: async (code) => {
+    try {
+      const { pendingEmail } = get();
+      if (!pendingEmail) {
+        toast.error("No email found for verification");
+        return;
+      }
+  
+      const res = await axiosInstance.post("/auth/verify-email", {
+        email: pendingEmail,
+        code,
+      });
+  
+      set({ authUser: res.data.user });
+      toast.success("Email verified successfully!");
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Verification failed");
+    }
+  },
+  
 }));

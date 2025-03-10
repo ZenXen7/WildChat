@@ -2,31 +2,20 @@
 
 import { useState } from "react"
 import { useAuthStore } from "../store/useAuthStore"
-import {
-  Eye,
-  EyeOff,
-  Loader2,
-  Lock,
-  Mail,
-  MessageSquare,
-  User,
-  Github,
-  Twitter,
-  ChromeIcon as Google,
-} from "lucide-react"
+import { Eye, EyeOff, Loader2, Lock, Mail, User, Github, Twitter, ChromeIcon as Google } from "lucide-react"
 import { Link } from "react-router-dom"
 import AnimatedBackground from "../components/AnimatedBackground"
+import VerifyEmail from "../components/VerifyEmail" // Import verification form
 import toast from "react-hot-toast"
-import { useThemeStore } from "../store/useThemeStore"
 
 const SignUpPage = () => {
-  const { theme } = useThemeStore();
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     password: "",
   })
+  const [isVerifying, setIsVerifying] = useState(false) 
 
   const { signup, isSigningUp } = useAuthStore()
 
@@ -40,151 +29,111 @@ const SignUpPage = () => {
     return true
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const success = validateForm()
-    if (success === true) signup(formData)
+    if (success === true) {
+      await signup(formData)
+      setIsVerifying(true) // Show verification form after sign-up
+    }
   }
 
   return (
     <div className="min-h-screen grid lg:grid-cols-2">
       <div className="flex flex-col justify-center items-center p-6 sm:p-12 bg-base-100">
         <div className="w-full max-w-md space-y-8">
-         
-          <div className="text-center mb-8">
-            <div className="flex flex-col items-center gap-2 group">
-              
-              <h1 className="text-3xl font-bold mt-3 text-base-content">Create Account</h1>
-              <p className="text-base-content/60 text-lg">Get started with your free account</p>
-            </div>
-          </div>
-
-         
-          <div className="grid grid-cols-3 gap-3">
-            <button className="btn btn-outline btn-sm h-12 flex items-center justify-center gap-2 transition-all">
-              <Google className="size-5" />
-            </button>
-            <button className="btn btn-outline btn-sm h-12 flex items-center justify-center gap-2 transition-all">
-              <Github className="size-5" />
-            </button>
-            <button className="btn btn-outline btn-sm h-12 flex items-center justify-center gap-2  transition-all">
-              <Twitter className="size-5" />
-            </button>
-          </div>
-
-          
-          <div className="flex items-center my-6">
-            <div className="flex-grow h-px bg-base-300"></div>
-            <span className="px-3 text-sm text-base-content/60">or continue with email</span>
-            <div className="flex-grow h-px bg-base-300"></div>
-          </div>
-
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text font-medium">Full Name</span>
-              </label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <User className="size-5 text-base-content/90" />
-                </div>
-                <input
-                  type="text"
-                  className="input input-bordered w-full pl-10 rounded-lg h-12 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
-                  placeholder=""
-                  value={formData.fullName}
-                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                />
+          {isVerifying ? (
+            <VerifyEmail email={formData.email} /> // Show verification form
+          ) : (
+            <>
+              {/* Sign Up Form */}
+              <div className="text-center mb-8">
+                <h1 className="text-3xl font-bold mt-3 text-base-content">Create Account</h1>
+                <p className="text-base-content/60 text-lg">Get started with your free account</p>
               </div>
-            </div>
 
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text font-medium">Email</span>
-              </label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Mail  className="size-5 text-base-content/90" />
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text font-medium">Full Name</span>
+                  </label>
+                  <div className="relative">
+                    <User className="absolute left-3 top-3 size-5 text-base-content/90" />
+                    <input
+                      type="text"
+                      className="input input-bordered w-full pl-10 h-12"
+                      value={formData.fullName}
+                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                    />
+                  </div>
                 </div>
-                <input
-                  type="email"
-                  className="input input-bordered w-full pl-10 rounded-lg h-12 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
-                  placeholder=""
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                />
-              </div>
-            </div>
 
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text font-medium">Password</span>
-                <span className="label-text-alt text-base-content/60">Min. 6 characters</span>
-              </label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Lock className="size-5 text-base-content/90" />
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text font-medium">Email</span>
+                  </label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-3 size-5 text-base-content/90" />
+                    <input
+                      type="email"
+                      className="input input-bordered w-full pl-10 h-12"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    />
+                  </div>
                 </div>
-                <input
-                  type={showPassword ? "text" : "password"}
-                  className="input input-bordered w-full pl-10 rounded-lg h-12 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
-                  placeholder=""
-                  value={formData.password}
-                  onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                />
+
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text font-medium">Password</span>
+                  </label>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-3 size-5 text-base-content/90" />
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      className="input input-bordered w-full pl-10 h-12"
+                      value={formData.password}
+                      onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                    />
+                    <button
+                      type="button"
+                      className="absolute right-3 top-3 text-base-content/40"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? <EyeOff className="size-5" /> : <Eye className="size-5" />}
+                    </button>
+                  </div>
+                </div>
+
                 <button
-                  type="button"
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-base-content/40 hover:text-base-content transition-colors"
-                  onClick={() => setShowPassword(!showPassword)}
+                  type="submit"
+                  className="btn btn-primary w-full h-12 mt-4"
+                  disabled={isSigningUp}
                 >
-                  {showPassword ? <EyeOff className="size-5" /> : <Eye className="size-5" />}
+                  {isSigningUp ? (
+                    <>
+                      <Loader2 className="size-5 animate-spin" />
+                      Creating your account...
+                    </>
+                  ) : (
+                    "Create Account"
+                  )}
                 </button>
+              </form>
+
+              <div className="text-center pt-4">
+                <p>
+                  Already have an account?{" "}
+                  <Link to="/login" className="link link-primary font-medium">
+                    Sign in
+                  </Link>
+                </p>
               </div>
-            </div>
-
-            <div className="form-control mt-2">
-              <label className="label cursor-pointer justify-start gap-2">
-                <input type="checkbox" className="checkbox checkbox-sm checkbox-primary" />
-                <span className="label-text">
-                  I agree to the{" "}
-                  <a href="#" className="link link-primary">
-                    Terms of Service
-                  </a>{" "}
-                  and{" "}
-                  <a href="#" className="link link-primary">
-                    Privacy Policy
-                  </a>
-                </span>
-              </label>
-            </div>
-
-            <button
-              type="submit"
-              className="btn btn-primary w-full h-12 mt-4 text-base font-medium transition-all duration-300 hover:shadow-md hover:shadow-primary/20"
-              disabled={isSigningUp}
-            >
-              {isSigningUp ? (
-                <>
-                  <Loader2 className="size-5 animate-spin" />
-                  Creating your account...
-                </>
-              ) : (
-                "Create Account"
-              )}
-            </button>
-          </form>
-
-          <div className="text-center pt-4">
-            <p className="text-base-content/70">
-              Already have an account?{" "}
-              <Link to="/login" className="link link-primary font-medium hover:underline">
-                Sign in
-              </Link>
-            </p>
-          </div>
+            </>
+          )}
         </div>
       </div>
-            
+
       <AnimatedBackground
         title="Join our community"
         subtitle="Connect with friends, share moments, and stay in touch with your loved ones."
@@ -194,4 +143,3 @@ const SignUpPage = () => {
 }
 
 export default SignUpPage
-
