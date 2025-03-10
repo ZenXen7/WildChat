@@ -10,7 +10,7 @@ WildChats is a real-time chat application built for **Cebu Institute of Technolo
 - 🟢 **Real-Time Messaging:** Instant communication powered by Socket.io
 - 🔒 **Privacy & Security:** User authentication and message encryption for confidentiality
 - 🎨 **Modern UI:** Responsive and clean design with TailwindCSS and Daisy UI
-- 🎭 **Custom Wildcat Emojis:** Unique CIT-U themed reactions and stickers
+
 
 ## 🤝 Contributing
 
