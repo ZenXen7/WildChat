@@ -1,6 +1,6 @@
 # WildChats - CIT-U Real-Time Chat App
 
-WildChats is a real-time chat application built for **Cebu Institute of Technology - University (CIT-U)** students, also known as **Wildcats**! This platform enables seamless communication among students, faculty, and organizations, providing a modern and secure chatting experience.
+WildChats is a real-time chat hub designed for Cebu Institute of Technology - University (CIT-U) students, also known as Wildcats! This platform serves as a central hub where you can see all active users and instantly start conversations with any of them. Whether you want to chat with classmates, make new connections, or just have casual discussions, WildChats keeps communication seamless and engaging. Stay connected, stay social, and chat freely! 
 
 ## 🚀 Features
 

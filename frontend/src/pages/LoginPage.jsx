@@ -4,7 +4,7 @@ import { useState } from "react"
 import { useAuthStore } from "../store/useAuthStore"
 import AuthImagePattern from "../components/AuthImagePattern"
 import { Link } from "react-router-dom"
-import { Eye, EyeOff, Loader2, Lock, Mail, MessageSquare, Github, Twitter, ChromeIcon as Google } from "lucide-react"
+import { Eye, EyeOff, Loader2, Lock, Cat, Mail, MessageSquare, Github, Twitter, ChromeIcon as Google } from "lucide-react"
 import AnimatedBackground from "../components/AnimatedBackground"
 
 const LoginPage = () => {
@@ -32,7 +32,7 @@ const LoginPage = () => {
                 className="size-14 rounded-2xl bg-primary/10 flex items-center justify-center 
                 group-hover:bg-primary/20 transition-all duration-300 transform group-hover:scale-105"
               >
-                <MessageSquare className="size-7 text-primary" />
+                <Cat className="size-7 text-primary" />
               </div>
               <h1 className="text-3xl font-bold mt-3 text-base-content">Welcome Back</h1>
               <p className="text-base-content/60 text-lg">Sign in to your account</p>
@@ -145,10 +145,11 @@ const LoginPage = () => {
         </div>
       </div>
 
-       <AnimatedBackground
-             title="Join our community"
-             subtitle="Connect with friends, share moments, and stay in touch with your loved ones."
-           />
+      <AnimatedBackground
+      title="Join WildChats"
+      subtitle="See who's online, start conversations, and connect with fellow Wildcats in real time."
+    />
+
     </div>
   )
 }
