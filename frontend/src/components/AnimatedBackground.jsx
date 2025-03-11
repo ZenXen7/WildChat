@@ -5,6 +5,7 @@ import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 
 export function AnimatedBackground({ title, subtitle }) {
+  // eslint-disable-next-line no-unused-vars
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
